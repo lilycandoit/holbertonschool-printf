@@ -4,6 +4,7 @@
 
 /**
 * print_char - to print %c
+* @arg: the arguments stored in va_list
 * @count: the number of character printed
 * Return: void
 */
@@ -17,6 +18,7 @@ void print_char(va_list args, int *count)
 
 /**
 * print_str - to print %s
+* @arg: the arguments stored in va_list
 * @count: the number of character printed
 * Return: void
 */
@@ -35,7 +37,7 @@ void print_str(va_list args, int *count)
 	}
 }
 /**
-* print_char - to print %%
+* print_percent - to print %%
 * @count: the number of character printed
 * Return: void
 */
