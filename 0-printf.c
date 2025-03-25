@@ -18,7 +18,8 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			format++;
+			format++; /* move to next character afer % */
+			
 			if (*format == '\0')
 			{
 				return (-1);
