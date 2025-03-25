@@ -2,6 +2,35 @@
 #include "stdio.h"
 #include "stdarg.h"
 
+/* helper functions */
+void print_char(va_list args, int *count)
+{
+	char current_c = va_arg(args, int);
+	putchar(current_c);
+	(*count)++;
+}
+
+void print_str(va_list args, int *count)
+{
+	char *str = va_arg(args, char *);
+
+	if (str == NULL)
+	str = "(null)";
+
+	while (*str)
+	{
+	putchar(*str);
+	count++;
+	str++;
+	}
+}
+
+void print_percent(int *count)
+{
+	putchar('%');
+	count += 1;
+}
+
 /**
  * _printf - mimic a printf function in C
  * @format: the given string
@@ -19,36 +48,19 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++; /* move to next character afer % */
-			
+
 			if (*format == '\0')
-			{
 				return (-1);
-			}
+
 			else if (*format == 'c')
-			{
-				char current_c = va_arg(args, int);
-				putchar(current_c);
-				count++;
-			}
+				print_char(args, &count);
+
 			else if (*format == 's')
-			{
-				char *str = va_arg(args, char *);
+				print_str(args, &count);
 
-				if (str == NULL)
-				str = "(null)";
-
-				while (*str)
-				{
-				putchar(*str);
-				count++;
-				str++;
-				}
-			}
 			else if (*format == '%')
-			{
-				putchar('%');
-				count += 1;
-			}
+				print_percent(&count);
+
 			else /* handle invalid specifiers */
 			{
 				putchar('%');
@@ -61,11 +73,8 @@ int _printf(const char *format, ...)
 		putchar(*format);
 		count++;
 		}
-
 		format++;
-
 	}
-
 	va_end(args);
 	return (count);
 }
