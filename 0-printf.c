@@ -39,7 +39,7 @@ void print_percent(int *count)
 int _printf(const char *format, ...)
 {
 	va_list args;
-	unsigned int count = 0;
+	int count = 0;
 
 	va_start(args, format);
 
