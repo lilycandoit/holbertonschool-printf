@@ -6,7 +6,7 @@
 /**
 * print_num - to handle %d and %i
 * @num: the integer passed in
-* @count: the number of character printed
+* @count: a pointer to an int to track the number of characters printed
 * Return: void
 */
 
@@ -45,7 +45,7 @@ void print_num(int num, int *count)
 /**
 * print_char - to print %c
 * @args: the arguments stored in va_list
-* @count: the number of character printed
+* @count: a pointer to an int to track the number of characters printed
 * Return: void
 */
 void print_char(va_list args, int *count)
@@ -59,7 +59,7 @@ void print_char(va_list args, int *count)
 /**
 * print_str - to print %s
 * @args: the arguments stored in va_list
-* @count: the number of character printed
+* @count: a pointer to an int to track the number of characters printed
 * Return: void
 */
 void print_str(va_list args, int *count)
@@ -78,7 +78,7 @@ void print_str(va_list args, int *count)
 }
 /**
 * print_percent - to print %%
-* @count: the number of character printed
+* @count: a pointer to an int to track the number of characters printed
 * Return: void
 */
 void print_percent(int *count)
