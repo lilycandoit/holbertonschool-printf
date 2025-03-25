@@ -17,7 +17,7 @@ void print_num(int num, int *count)
 		putchar('-');
 		(*count)++;
 		putchar('2');
-		num = 147483648;
+		num = 147483648; /* hardcode based on INT_MIN */
 	}
 	else if (num < 0)
 	{
@@ -134,6 +134,7 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+
 
 
 
