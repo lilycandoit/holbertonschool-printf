@@ -3,6 +3,33 @@
 #include "stdarg.h"
 
 /**
+* print_num - to handle %d and %i
+* @num: the integer passed in
+* @count: the number of character printed
+* Return: void
+*/
+
+void print_num(int num, int *count)
+{
+	if (num < 0)
+	{
+		putchar('-');
+		(*count)++;
+		num  = -num;
+		/* need to convert to positive number */
+		/* to work with putchar later */
+	}
+
+	if (num / 10) /* recursion to print all digits */
+		print_num(num / 10, count);
+
+	putchar((num % 10) + '0'); /* last digit*/
+
+	(*count)++;
+	/* increase the integer (value) stored at pointer */
+}
+
+/**
 * print_char - to print %c
 * @args: the arguments stored in va_list
 * @count: the number of character printed
@@ -67,6 +94,11 @@ int _printf(const char *format, ...)
 
 			if (*format == '\0')
 				return (-1);
+			else if (*format == 'd' || *format == 'i')
+			{
+				int num = va_arg(args, int);
+				print_num(num, &count);
+			}
 
 			else if (*format == 'c')
 				print_char(args, &count);
