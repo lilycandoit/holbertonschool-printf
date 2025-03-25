@@ -17,33 +17,39 @@ int _printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format == '%')
-	{
-		format++;
-		if (*format == 'c')
 		{
-			char current_c = va_arg(args, int);
-			putchar(current_c);
-			count++;
-		}
-		else if (*format == 's')
-		{
-			char *str = va_arg(args, char *);
-
-			if (str == NULL)
-			str = "(null)";
-
-			while (*str)
+			format++;
+			if (*format == 'c')
 			{
-			putchar(*str);
-			count++;
-			str++;
+				char current_c = va_arg(args, int);
+				putchar(current_c);
+				count++;
 			}
-		}
-		else if (*format == '%')
-		{
-			putchar('%');
-			count++;
-		}
+			else if (*format == 's')
+			{
+				char *str = va_arg(args, char *);
+
+				if (str == NULL)
+				str = "(null)";
+
+				while (*str)
+				{
+				putchar(*str);
+				count++;
+				str++;
+				}
+			}
+			else if (*format == '%')
+			{
+				putchar('%');
+				count += 1;
+			}
+			else
+			{
+				putchar('%');
+				putchar(*format);
+				count += 2;
+			}
 		}
 		else
 		{
@@ -59,6 +65,20 @@ int _printf(const char *format, ...)
 	return (count);
 }
 
+int main() {
+    int len1 = _printf("hellooo %s\n", "world");
+
+    int len2 = _printf("Test character %%!\n", 'A');
+
+    int len5 = _printf("Test character %!\n", 'A');
+
+    int len3 = _printf("random number %d\n", 12888);
+
+    int len4 = _printf("goodnight %d\n", -888);
+
+    printf("Characters printed: %d, %d, %d, %d\n", len1, len2, len5, len4);
+    return 0;
+}
 
 
 
