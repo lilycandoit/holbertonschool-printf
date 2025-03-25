@@ -2,14 +2,24 @@
 #include "stdio.h"
 #include "stdarg.h"
 
-/* helper functions */
+/**
+* print_char - to print %c
+* @count: the number of character printed
+* Return: void
+*/
 void print_char(va_list args, int *count)
 {
 	char current_c = va_arg(args, int);
+
 	putchar(current_c);
 	(*count)++;
 }
 
+/**
+* print_str - to print %s
+* @count: the number of character printed
+* Return: void
+*/
 void print_str(va_list args, int *count)
 {
 	char *str = va_arg(args, char *);
@@ -24,7 +34,11 @@ void print_str(va_list args, int *count)
 	str++;
 	}
 }
-
+/**
+* print_char - to print %%
+* @count: the number of character printed
+* Return: void
+*/
 void print_percent(int *count)
 {
 	putchar('%');
@@ -78,6 +92,7 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+
 
 
 
