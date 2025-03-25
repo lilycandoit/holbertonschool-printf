@@ -11,7 +11,14 @@
 
 void print_num(int num, int *count)
 {
-	if (num < 0)
+	if (num == -2147483648)
+	{
+		putchar('-');
+		(*count)++;
+		putchar('2');
+		num = 147483648;
+	}
+	else if (num < 0)
 	{
 		putchar('-');
 		(*count)++;
@@ -23,7 +30,7 @@ void print_num(int num, int *count)
 	if (num / 10) /* recursion to print all digits */
 		print_num(num / 10, count);
 
-	putchar((num % 10) + '0'); /* last digit*/
+	putchar((num % 10) + '0'); /* last digit */
 
 	(*count)++;
 	/* increase the integer (value) stored at pointer */
