@@ -4,11 +4,11 @@
 
 /**
 * print_char - to print %c
-* @arg: the arguments stored in va_list
+* @args: the arguments stored in va_list
 * @count: the number of character printed
 * Return: void
 */
-void print_char(va_list args, int *count)
+void print_char(char va_list args, int *count)
 {
 	char current_c = va_arg(args, int);
 
@@ -18,11 +18,11 @@ void print_char(va_list args, int *count)
 
 /**
 * print_str - to print %s
-* @arg: the arguments stored in va_list
+* @args: the arguments stored in va_list
 * @count: the number of character printed
 * Return: void
 */
-void print_str(va_list args, int *count)
+void print_str(char va_list args, int *count)
 {
 	char *str = va_arg(args, char *);
 
