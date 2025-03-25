@@ -20,7 +20,7 @@ void print_str(va_list args, int *count)
 	while (*str)
 	{
 	putchar(*str);
-	count++;
+	(*count)++;
 	str++;
 	}
 }
@@ -28,7 +28,7 @@ void print_str(va_list args, int *count)
 void print_percent(int *count)
 {
 	putchar('%');
-	count += 1;
+	(*count)++;
 }
 
 /**
