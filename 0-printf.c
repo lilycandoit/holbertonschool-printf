@@ -8,7 +8,7 @@
 * @count: the number of character printed
 * Return: void
 */
-void print_char(char va_list args, int *count)
+void print_char(va_list args, int *count)
 {
 	char current_c = va_arg(args, int);
 
@@ -22,7 +22,7 @@ void print_char(char va_list args, int *count)
 * @count: the number of character printed
 * Return: void
 */
-void print_str(char va_list args, int *count)
+void print_str(va_list args, int *count)
 {
 	char *str = va_arg(args, char *);
 
