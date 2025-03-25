@@ -19,7 +19,11 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			if (*format == 'c')
+			if (*format == '\0')
+			{
+				return (-1);
+			}
+			else if (*format == 'c')
 			{
 				char current_c = va_arg(args, int);
 				putchar(current_c);
@@ -44,7 +48,7 @@ int _printf(const char *format, ...)
 				putchar('%');
 				count += 1;
 			}
-			else
+			else /* handle invalid specifiers */
 			{
 				putchar('%');
 				putchar(*format);
