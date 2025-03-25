@@ -14,12 +14,17 @@ void print_num(int num, int *count)
 {
 	if (num == INT_MIN)
 	{
-		putchar('-');
-		(*count)++;
-		putchar('2');
-		num = 147483648; /* hardcode based on INT_MIN */
+		char *min_str = "-2147483648";
+		while (*min_str)
+		{
+			putchar(*min_str);
+			(*count)++;
+			min_str++;
+		}
+		return;
 	}
-	else if (num < 0)
+
+	if (num < 0)
 	{
 		putchar('-');
 		(*count)++;
