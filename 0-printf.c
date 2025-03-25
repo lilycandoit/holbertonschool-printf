@@ -1,6 +1,7 @@
 #include "main.h"
 #include "stdio.h"
 #include "stdarg.h"
+#include "limits.h"
 
 /**
 * print_num - to handle %d and %i
@@ -11,7 +12,7 @@
 
 void print_num(int num, int *count)
 {
-	if (num == -2147483648)
+	if (num == INT_MIN)
 	{
 		putchar('-');
 		(*count)++;
@@ -133,6 +134,7 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+
 
 
 
