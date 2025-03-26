@@ -96,7 +96,7 @@ void print_percent(int *count)
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count = 0, num = va_arg(args, int);
+	int count = 0;
 
 	va_start(args, format);
 
@@ -109,9 +109,10 @@ int _printf(const char *format, ...)
 				return (-1);
 			else if (*format == 'd' || *format == 'i')
 			{
+				int num = va_arg(args, int);
+
 				print_num(num, &count);
 			}
-
 			else if (*format == 'c')
 				print_char(args, &count);
 			else if (*format == 's')
@@ -135,10 +136,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
-
-
-
-
-
-
