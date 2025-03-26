@@ -15,6 +15,7 @@ void print_num(int num, int *count)
 	if (num == INT_MIN)
 	{
 		char *min_str = "-2147483648";
+
 		while (*min_str)
 		{
 			putchar(*min_str);
@@ -95,7 +96,7 @@ void print_percent(int *count)
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count = 0;
+	int count = 0, num = va_arg(args, int);
 
 	va_start(args, format);
 
@@ -104,24 +105,19 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++; /* move to next character afer % */
-
 			if (*format == '\0')
 				return (-1);
 			else if (*format == 'd' || *format == 'i')
 			{
-				int num = va_arg(args, int);
 				print_num(num, &count);
 			}
 
 			else if (*format == 'c')
 				print_char(args, &count);
-
 			else if (*format == 's')
 				print_str(args, &count);
-
 			else if (*format == '%')
 				print_percent(&count);
-
 			else /* handle invalid specifiers */
 			{
 				putchar('%');
