@@ -1,32 +1,64 @@
-NAME
-_printf - a printf function in C for formatted output
-SYNOPSIS
+# **_printf**
+
+**_printf** - A printf function in C for formatted output.
+
+## **SYNOPSIS**
+```c
 #include "main.h"
 #include "stdio.h"
 #include "stdarg.h"
 #include "limits.h"
-Prototype
+
+##PROTOTYPE
+
 int _printf(const char *format, ...);
-DESCRIPTION
+
+##DESCRIPTION
 This implementation handles the following conversion specifiers:
-%c - Prints a single character.
-%s - Prints a string. If the string is NULL, it prints (null).
-B% or %i - Prints a signed integer, including negative values.
-%%- Prints a literal percentage sign.
+
 This function does not handle:
+
 Buffer management.
 Flag characters, field width, precision, or length modifiers.
 The function writes output directly to stdout, the standard output stream.
-RETURN VALUE
-Returns the total number of characters printed (excluding the null byte used to terminate strings). If the format string is BNULL, or if an error occurs, it returns B-1.
-EXAMPLES
+
+##RETURN VALUE
+
+Returns the total number of characters printed (excluding the null byte used to terminate strings). If the format string is **NULL** , or if an error occurs, it returns -1 .
+
+##INSTALLATION
+
+- Clone the repository using: git clone ~~https://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@github.com/lilycandoit/holbertonschool-printf.git~~
+
+- Configure Git
+
+##EXAMPLES
+
 #include "main.h"
+
 int main() {
-_printf("Character: %c\\n", 'A');
-_printf("String: %s\\n", "Hello, World!");
-_printf("Integer: %d\\n", 42);
-_printf("Percent sign: %%\\n");
-return 0;
+    _printf("Character: %c\n", 'A');
+    _printf("String: %s\n", "Hello, World!");
+    _printf("Integer: %d\n", 42);
+    _printf("Percent sign: %%\n");
+    return 0;
 }
-SEE ALSO
-printf(3)
+
+###Expected Output:
+
+Character: A
+String: Hello, World!
+Integer: 42
+Percent sign: %
+
+##COMPILING AND EXECUTING
+
+gcc -Wall -Werror -Wextra -pedantic *.c -o printf
+
+###Run the executable:
+./printf
+
+##CONTRIBUTORS
+- Lily
+- Xiaoling
+- Wawa

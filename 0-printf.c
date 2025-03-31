@@ -103,7 +103,7 @@ int _printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format == '%')
-.		{
+		{
 			format++; /* move to next character afer % */
 			if (*format == '\0')
 				return (-1);
