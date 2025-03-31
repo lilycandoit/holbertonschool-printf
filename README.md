@@ -1,39 +1,46 @@
 # **_printf**
 
-**_printf** - A printf function in C for formatted output.
+## **Description**
+**_printf** is a custom implementation of the standard C `printf` function, designed to format and print output to the standard output stream.
 
-## **SYNOPSIS**
+## **Prototype**
 ```c
-#include "main.h"
-#include "stdio.h"
-#include "stdarg.h"
-#include "limits.h"
-
-##PROTOTYPE
-
 int _printf(const char *format, ...);
+```
 
-##DESCRIPTION
-This implementation handles the following conversion specifiers:
+## **Supported Format Specifiers**
+This implementation supports the following conversion specifiers:
+- `%c` - Prints a single character
+- `%s` - Prints a string
+- `%d` - Prints a decimal integer
+- `%i` - Prints an integer
+- `%%` - Prints a percent sign
 
-This function does not handle:
+### **Limitations**
+This implementation does **not** support:
+- Buffer management
+- Flag characters, field width, precision, or length modifiers
 
-Buffer management.
-Flag characters, field width, precision, or length modifiers.
-The function writes output directly to stdout, the standard output stream.
+## **Return Value**
+- Returns the total number of characters printed (excluding the null byte used to terminate strings).
+- Returns `-1` if an error occurs or if the format string is `NULL`.
 
-##RETURN VALUE
+## **Installation**
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/lilycandoit/holbertonschool-printf.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd holbertonschool-printf
+   ```
+3. Compile the program:
+   ```sh
+   gcc -Wall -Werror -Wextra -pedantic *.c -o printf
+   ```
 
-Returns the total number of characters printed (excluding the null byte used to terminate strings). If the format string is **NULL** , or if an error occurs, it returns -1 .
-
-##INSTALLATION
-
-- Clone the repository using: git clone ~~https://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@github.com/lilycandoit/holbertonschool-printf.git~~
-
-- Configure Git
-
-##EXAMPLES
-
+## **Usage**
+```c
 #include "main.h"
 
 int main() {
@@ -43,22 +50,24 @@ int main() {
     _printf("Percent sign: %%\n");
     return 0;
 }
+```
 
-###Expected Output:
-
+### **Expected Output**
+```
 Character: A
 String: Hello, World!
 Integer: 42
 Percent sign: %
+```
 
-##COMPILING AND EXECUTING
-
-gcc -Wall -Werror -Wextra -pedantic *.c -o printf
-
-###Run the executable:
+## **Running the Program**
+After compiling, execute the program with:
+```sh
 ./printf
+```
 
-##CONTRIBUTORS
-- Lily
-- Xiaoling
-- Wawa
+## **Contributors**
+- **Lily**
+- **Xiaoling**
+- **Wawa**
+
